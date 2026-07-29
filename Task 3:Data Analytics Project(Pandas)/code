@@ -1,0 +1,28 @@
+import pandas as pd
+
+# Define the path to the sample CSV dataset
+csv_file_path = '/content/sample_data/california_housing_test.csv'
+
+print(f"Loading data from: {csv_file_path}")
+
+# Load and inspect the CSV dataset
+try:
+    df = pd.read_csv(csv_file_path)
+    print("\nDataset loaded successfully!")
+
+    # Display the first few rows of the DataFrame
+    print("\nFirst 5 rows of the dataset:")
+    display(df.head())
+
+    # Display basic information about the DataFrame (columns, non-null counts, data types)
+    print("\nDataset Information:")
+    df.info()
+
+    # Display descriptive statistics of the numerical columns
+    print("\nDescriptive Statistics:")
+    display(df.describe())
+
+except FileNotFoundError:
+    print(f"Error: The file '{csv_file_path}' was not found. Please ensure it's in the correct path.")
+except Exception as e:
+    print(f"An error occurred while loading the dataset: {e}")
